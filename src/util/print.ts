@@ -30,7 +30,7 @@ class Print {
 
   commandUsage() {
     // eslint-disable-next-line no-console
-    console.log(`\n${chalk.bgWhite(chalk.bold('Usage example:'))} ./commonip 192.168.0.0/24 192.168.0.8/30`);
+    console.log(`\n${chalk.bgWhite(chalk.bold('Usage example:'))} ./ipConflict 192.168.0.0/24 192.168.0.8/30`);
   }
 }
 

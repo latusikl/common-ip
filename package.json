@@ -1,5 +1,5 @@
 {
-  "name": "common-ip",
+  "name": "ip-conflict",
   "version": "1.0.0",
   "description": "Check if network prefixes has common IPv4 addresses.",
   "main": "main.js",
