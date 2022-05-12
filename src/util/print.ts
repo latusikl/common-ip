@@ -9,6 +9,10 @@ class Print {
     console.log(chalk.green(figlet.textSync(constants.APP_NAME, this.LOGO_FONT)));
   }
 
+  appOutput(result: string) {
+    console.log(chalk.green(figlet.textSync(result , "3-D")));
+  }
+
   info(message: string) {
     // eslint-disable-next-line no-console
     console.log(
