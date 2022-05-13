@@ -7,34 +7,28 @@ function main() {
 
 
     if (argParser.areParamsValid(programArgs)) {
-        
-        let num1:number = 0;
-        let isCommon:boolean = true; 
+        let isCommon = true;
 
         console.dir(programArgs)
         const parameters = argParser.convertToIParameter(programArgs);
-        print.info(`Parameter 1: IP: ${parameters[0].ipAddress} | ${parameters[0].ipAddressNum.toString(2)}`)
-        print.info(`Parameter 1: Mask: ${parameters[0].ipMaskShort} | ${parameters[0].ipMaskNum.toString(2)}`)
-        print.info(`Parameter 2: IP: ${parameters[1].ipAddress} | ${parameters[1].ipAddressNum.toString(2)}`)
-        print.info(`Parameter 2: Mask: ${parameters[1].ipMaskShort} | ${parameters[1].ipMaskNum.toString(2)}`)
-        
-        if (+parameters[0].ipMaskShort < +parameters[1].ipMaskShort) {
 
-            for (let i = 0; i < +parameters[0].ipMaskShort - 1 ; i++) {
+        if (Number(parameters[0].ipMaskShort) < Number(parameters[1].ipMaskShort)) {
 
-                if(parameters[0].ipAddressNum.toString(2).charAt(i) != parameters[1].ipAddressNum.toString(2).charAt(i)){
+            for (let i = 0; i < Number(parameters[0].ipMaskShort) - 1; i++) {
+
+                if (parameters[0].ipAddressNum.toString(2).charAt(i) != parameters[1].ipAddressNum.toString(2).charAt(i)) {
                     isCommon = false
                 }
-            } 
+            }
 
         } else {
 
-            for (let i = 0; i < +parameters[1].ipMaskShort - 1 ; i++) {
+            for (let i = 0; i < Number(parameters[1].ipMaskShort) - 1; i++) {
 
-                if(parameters[0].ipAddressNum.toString(2).charAt(i) != parameters[1].ipAddressNum.toString(2).charAt(i)){
+                if (parameters[0].ipAddressNum.toString(2).charAt(i) != parameters[1].ipAddressNum.toString(2).charAt(i)) {
                     isCommon = false
                 }
-            } 
+            }
         }
 
         if (isCommon) {
@@ -46,8 +40,6 @@ function main() {
             print.appOutput("THERE IS NOT A CONFLICT")
 
         }
-        
-
     } else {
         print.error("Invalid number or parameters or parameters values are invalid.")
         print.commandUsage();
